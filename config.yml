@@ -1,0 +1,19 @@
+autoreload: false
+language: javascript
+jarDirectory: lib
+useScriptScope: true
+variableNames:
+        SERVER: 'server'
+        PLUGIN: 'plugin'
+        LOG: 'log'
+        SENDER: 'sender'
+        ARGS: 'args'
+        PLAYER: 'player'
+        BLOCK: 'block'
+systemProperties:
+    # See https://wiki.openjdk.java.net/display/Nashorn/Nashorn+jsr223+engine+notes
+    nashorn.args: ''
+libraries:
+  - library
+scriptPath:
+  - scripts

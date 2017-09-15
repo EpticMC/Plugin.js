@@ -1,0 +1,13 @@
+name: "PluginJS"
+version: "${version}-${project.build.number}"
+main: "org.nulldev.pluginjs.PluginJS"
+website: "https://github.com/EpticMC/Plugin.js"
+commands:
+  script:
+    description: Execute a script
+    usage: /script <name> <args>
+    permission: pluginjs.script
+  scriptreload:
+    description: Recompile scripts
+    usage: /scriptreload [classpath]
+    permission: pluginjs.reload
