@@ -204,7 +204,7 @@ public class PluginJS extends JavaPlugin {
                 if (engine.getFactory() != null) {
                     getLogger().info("Loaded scripting engine: " + engine.getFactory().getEngineName() + " version: " + engine.getFactory().getEngineVersion());
                     StringBuilder tmp = new StringBuilder();
-                    tmp.append("Valid file extensions for your scripts are:");
+                    tmp.append("Valid file extensions for your scripts are: ");
                     for (String s : engine.getFactory().getExtensions()) {
                         tmp.append(' ');
                         tmp.append(s);
@@ -234,7 +234,7 @@ public class PluginJS extends JavaPlugin {
                         this.libraries.put(library, Long.valueOf(library.lastModified()));
                         this.engineContext.setAttribute(ScriptEngine.FILENAME, library.getPath(), ScriptContext.ENGINE_SCOPE);
                         try { this.engine.eval(new FileReader(library)); } 
-                        catch (ScriptException ex) { getLogger().log(Level.WARNING, "Error in library: " + library + ":" + ex.getMessage()); } 
+                        catch (ScriptException ex) { getLogger().log(Level.WARNING, "Error in library: " + library + ": " + ex.getMessage()); } 
                         catch (FileNotFoundException ex) { getLogger().log(Level.SEVERE, null, ex); }
                         found = true;
                         break;
