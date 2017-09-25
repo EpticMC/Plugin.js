@@ -5,7 +5,8 @@ This is an attempt to make a framework for developing MC (Bukkit & Spigot) Plugi
 
 **Note:** DO NOT USE THAT RIGHT NOW. Because it is:
 
-- ...Very recent
-- ...Unsatable
+- ...Very new
+- ...Unstable
 - ...Feature less
 - ...probably not even compiling
+- ...just a test
