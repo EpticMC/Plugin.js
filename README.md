@@ -5,7 +5,6 @@ Develop MC Plugins in JavaScript
 
 - ...Very new
 - ...Unstable
-- ...Feature less
 - ...probably not even compiling
 - ...just a test
 
@@ -21,6 +20,7 @@ Develop MC Plugins in JavaScript
   - [autoreload](#autoreload)
   - [libraries](#libraries)
   - [scripts](#scripts)
+- [Commands](#commands)
 
 -------
 
@@ -40,11 +40,13 @@ This is an attempt to make a framework for developing MC (Bukkit & Spigot) Plugi
 
 The plugin requires Java 1.6, and to support command registration CraftBukkit 1.4.7. Oracle's java 1.6 includes support for javascript, to support other languages (or to install a different javascript version) you'll need to modify the startup classpath of your server and add additional jar files to the classpath.
 
-**Java 1.6 with included Javascript support:** <a name="16inc"></a>
+<a name="16inc"></a>
+**Java 1.6 with included Javascript support:** 
 
 Oracle's version of Java comes with a built in javascript engine, if you are using that it should just work. However if you are using Apple's version of Java then it may not be present (I don't own a Mac, and have not tested, if someone can let me know if it works or not I would appreciate it). Apple's JVM includes support for AppleScript, so you could try that.
 
-**Java 1.6 with updated Javascript support:** <a name="16upd"></a>
+<a name="16upd"></a>
+**Java 1.6 with updated Javascript support:** 
 
 The version of javascript shipped with Java 1.6 is known to be slow, also you will not be able to directly access plugin classes as it is not classloader aware. To update the javascript engine you need to download the latest version of Mozilla Rhino [here](https://developer.mozilla.org/en-US/docs/Rhino). Extract the zip file, and copy js.jar to your server directory. You will also need an implementation of ScriptEngine for Rhino, there is one [here](https://github.com/cevou/rhino-script-engine). Place that in your server's directory as well.
 
@@ -81,3 +83,22 @@ A list of script files which are to be loaded on startup. This will search for a
 
 A list of directories containing script files, which is searched when a user executes /script <name> for a file called <name>.<suffix> the directories are relative to plugins/pluginjs, for example the default setting searches under plugins/pluginjs/scripts/.
 
+<hr>
+
+## Commands
+
+The plugin only ships with two commands, both are fairly self explanatory.
+
+```Assembly
+/scriptreload
+```
+**Permission**: `pluginjs.reload` <br>
+**Description**: Force a reload of all your scripts.
+
+```Assembly
+/script <name>
+```
+**Permission**: `pluginjs.script` <br>
+**Description**: Execute the script named <name>.
+
+<hr>
