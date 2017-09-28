@@ -84,11 +84,11 @@ Whether to autoreload scripts when they have been edited. This is checked when a
 
 ### libraries
 
-A list of script files which are to be loaded on startup. This will search for a file in plugins/pluginjs/<name>.<suffix>. Where <name> is the name of the library and <suffix> is the file suffix for the scripting language, for example with javascript it is js, and with python it is py. The libraries are loaded in the order specified.
+A list of script files which are to be loaded on startup. This will search for a file in `plugins/pluginjs/<name>.<suffix>`. Where `<name>` is the name of the library and `<suffix>` is the file suffix for the scripting language, for example with javascript it is js, and with python it is py. The libraries are loaded in the order specified.
 
 ### scripts
 
-A list of directories containing script files, which is searched when a user executes /script <name> for a file called <name>.<suffix> the directories are relative to plugins/pluginjs, for example the default setting searches under plugins/pluginjs/scripts/.
+A list of directories containing script files, which is searched when a user executes `/script <name>` for a file called `<name>.<suffix>` the directories are relative to `plugins/pluginjs`, for example the default setting searches under `plugins/pluginjs/scripts/`.
 
 <hr>
 
@@ -217,8 +217,8 @@ Returns a Config object for persisting per player data.
 
 Javascript usage examples:
 
-Save the following as echo.js under plugins/pluginjs/scripts/ <br>
-Then execute it via /script echo <message>. 
+Save the following as `echo.js` under `plugins/pluginjs/scripts/` <br>
+Then execute it via `/script echo <message>`. 
 
 **You can use & for Minecraft formatting codes.**
 
