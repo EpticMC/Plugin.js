@@ -21,6 +21,11 @@ Develop MC Plugins in JavaScript
   - [libraries](#libraries)
   - [scripts](#scripts)
 - [Commands](#commands)
+  - [scriptreload](#com1)
+  - [script](#com2)
+- [Variables](#variables)
+  - [Library variables](#lvar)
+  - [Script variables](#svar)
 
 -------
 
@@ -89,16 +94,43 @@ A list of directories containing script files, which is searched when a user exe
 
 The plugin only ships with two commands, both are fairly self explanatory.
 
+<a name="com1"></a>
 ```Assembly
 /scriptreload
 ```
 **Permission**: `pluginjs.reload` <br>
 **Description**: Force a reload of all your scripts.
 
+<a name="com2"></a>
 ```Assembly
 /script <name>
 ```
 **Permission**: `pluginjs.script` <br>
 **Description**: Execute the script named <name>.
+
+<hr>
+
+## Variables
+There are some default variables already set:
+
+<a name="lvar"></a>
+**Library variables**
+
+| Variable | Purpose |
+|----------|---------|
+| `server` | Equivalent to `getServer()` in a plugin. |
+| `log`    | Equivalent to `getLogger()` in a plugin. |
+| `plugin` | The PluginJS plugin | 
+
+<a name="svar"></a>
+**Script variables** <br>
+In addition to the variables available in library scripts, the following are available
+
+| Variable | Purpose |
+|----------|---------|
+| `sender` | The CommandSender. |
+| `args`   | Array of arguments to the script. |
+| `player` | Set to the player if CommandSender is a Player. | 
+| `block`  | Set to the command block if CommandSender is a BlockCommandSender. | 
 
 <hr>
