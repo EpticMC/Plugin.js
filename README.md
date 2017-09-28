@@ -26,6 +26,7 @@ Develop MC Plugins in JavaScript
 - [Variables](#variables)
   - [Library variables](#lvar)
   - [Script variables](#svar)
+- [Functions](#functions)
 
 -------
 
@@ -114,7 +115,7 @@ The plugin only ships with two commands, both are fairly self explanatory.
 There are some default variables already set:
 
 <a name="lvar"></a>
-**Library variables**
+### Library variables
 
 | Variable | Purpose |
 |----------|---------|
@@ -123,7 +124,7 @@ There are some default variables already set:
 | `plugin` | The PluginJS plugin | 
 
 <a name="svar"></a>
-**Script variables** <br>
+### Script variables
 In addition to the variables available in library scripts, the following are available
 
 | Variable | Purpose |
@@ -132,5 +133,81 @@ In addition to the variables available in library scripts, the following are ava
 | `args`   | Array of arguments to the script. |
 | `player` | Set to the player if CommandSender is a Player. | 
 | `block`  | Set to the command block if CommandSender is a BlockCommandSender. | 
+
+<hr>
+
+## Functions
+
+The plugin provides function to make it easy to add new commands and hook into bukkit events. 
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 1 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+void registerEvent(Class type, Function function)
+```
+Listen for bukkit events with specified class, and pass them to the function in the script.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 2 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+void registerEvent(Class type, EventPriority priority, Function function)
+```
+Same as above, but allows you to specify an event priority.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 3 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+void registerEvent(Class type, EventPrioirity priority, boolean ignoreCancelled, Function function)
+```
+Same as above, but allows you to pass in an ignoreCancelled flag.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 4 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+PluginCommand registerCommand(String name, Function function)
+```
+Register a command handler, returns a PluginCommand with which you can set the Usage and Help on.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 5 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getServerConfig()
+```
+Returns a Config object for persisting server wide data.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 6 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getWorldConfig(World world)
+```
+Returns a Config object for persisting per world data.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 7 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getWorldConfig(String world)
+```
+Returns a Config object for persisting per world data.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 8 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getPlayerConfig(Player player)
+```
+Returns a Config object for persisting per player data. If configured to use UUIDs, this will get the config by UUID, else it will use the Player's name.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 9 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getPlayerConfig(String player)
+```
+Returns a Config object for persisting per player data. If a user is offline and the plugin is configured to use UUIDs, this will error.
+
+<p align="center"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s> 10 <s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
+
+```javascript
+Config getPlayerConfig(UUID player)
+```
+Returns a Config object for persisting per player data.
 
 <hr>
