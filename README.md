@@ -27,6 +27,7 @@ Develop MC Plugins in JavaScript
   - [Library variables](#lvar)
   - [Script variables](#svar)
 - [Functions](#functions)
+- [Examples](#examples)
 
 -------
 
@@ -209,5 +210,14 @@ Returns a Config object for persisting per player data. If a user is offline and
 Config getPlayerConfig(UUID player)
 ```
 Returns a Config object for persisting per player data.
+
+<hr>
+
+## Examples
+
+Javascript usage examples:
+
+Please refer to the examples folder in this repository: <br>
+https://github.com/EpticMC/Plugin.js/tree/master/examples
 
 <hr>
