@@ -217,7 +217,45 @@ Returns a Config object for persisting per player data.
 
 Javascript usage examples:
 
-Please refer to the examples folder in this repository: <br>
+Save the following as echo.js under plugins/pluginjs/scripts/ <br>
+Then execute it via /script echo <message>. 
+
+**You can use & for Minecraft formatting codes.**
+
+```javascript
+var world;
+
+if (block) world = block.getLocation().getWorld();
+
+if (player) world = player.getWorld();
+
+if (world) {
+    var msg = args.join(' ').replace(/&/g, '§');
+    var iter = world.getPlayers().iterator();
+    while (iter.hasNext()) {
+        var p = iter.next();
+        if (p.isOnline()) p.sendMessage(msg);
+    }
+}
+```
+
+### Explanation:
+
+All the references are above at the [functions](#functions) section but here is a quick summary:
+
+
+> `server` -> the Server. <br>
+> `plugin` -> PluginJS plugin. <br>
+> `log` -> PluginJS Logger. <br>
+> `sender` -> the sender of the command. <br>
+> `args` -> String[] of arguments. <br>
+> `player` -> the player (if sent from a player) or null. <br>
+> `block` -> the block (if sent from a command block) or null.
+
+
+For more simple examples refer to the examples folder in this repository: <br>
 https://github.com/EpticMC/Plugin.js/tree/master/examples
+
+If you made some good scripts that you want to share, feel free to contribute here by making a [pull request](https://github.com/EpticMC/Plugin.js/pulls). :smile:
 
 <hr>
